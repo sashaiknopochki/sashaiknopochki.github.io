@@ -1,3 +1,11 @@
+/* CSS Variables */
+:root {
+    --font-family:
+        "Google Sans", -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI",
+        "Roboto", "Helvetica", "Arial", sans-serif;
+    --underline-thickness: 2px;
+}
+
 /* Reset and base styles */
 * {
     margin: 0;
@@ -6,7 +14,7 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-family: var(--font-family);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #ffffff;
@@ -24,7 +32,9 @@ body {
 .content {
     flex: 1;
     padding: 80px 60px;
-    max-width: 720px;
+    padding-right: 60px;
+    margin-right: 440px;
+    max-width: calc(100% - 560px);
 }
 
 /* Introduction section */
@@ -38,13 +48,7 @@ body {
     line-height: 1.2;
     margin-bottom: 40px;
     letter-spacing: -0.02em;
-}
-
-.intro__subheading {
-    font-size: 24px;
-    font-weight: 300;
-    line-height: 1.4;
-    color: #333333;
+    max-width: 720px;
 }
 
 /* Works section */
@@ -52,20 +56,15 @@ body {
     margin-bottom: 80px;
 }
 
-.works__heading {
-    font-size: 24px;
-    font-weight: 300;
-    margin-bottom: 40px;
-    color: #333333;
-}
-
 /* Work card */
 .work-card {
     display: block;
-    text-decoration: none;
+    text-decoration-thickness: var(--underline-thickness);
+    text-underline-offset: 6px;
     color: inherit;
-    margin-bottom: 30px;
+    margin-bottom: 80px;
     transition: opacity 0.2s ease;
+    max-width: 640px;
 }
 
 .work-card:hover {
@@ -79,7 +78,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px;
+    padding: 80px;
+    text-decoration: none;
+}
+
+.work-card__logo--minin {
+    background-color: #d3d3d3;
 }
 
 .work-card__logo--atolls {
@@ -87,7 +91,23 @@ body {
 }
 
 .work-card__logo--igraal {
-    background-color: #FF5722;
+    background-color: #ff5722;
+}
+
+.work-card__logo-text {
+    font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Roboto",
+        "Helvetica",
+        "Arial",
+        sans-serif;
+    font-size: 120px;
+    font-weight: 800;
+    color: #000000;
+    text-decoration: none;
 }
 
 .work-card__logo img {
@@ -97,28 +117,33 @@ body {
 }
 
 .work-card__description {
-    font-size: 18px;
-    line-height: 1.4;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
     color: #000000;
-    text-decoration: underline;
-    text-underline-offset: 4px;
 }
 
 /* Contact section */
 .contact__heading {
-    font-size: 18px;
+    font-size: 48px;
     font-weight: 400;
-    margin-bottom: 16px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
 }
 
 .contact__email {
     display: block;
-    font-size: 32px;
+    font-size: 48px;
     font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
     color: #000000;
     text-decoration: underline;
+    text-decoration-thickness: var(--underline-thickness);
     text-underline-offset: 6px;
-    margin-bottom: 16px;
+    margin-bottom: 40px;
     transition: opacity 0.2s ease;
 }
 
@@ -128,10 +153,14 @@ body {
 
 .contact__linkedin {
     display: inline-block;
-    font-size: 24px;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
     color: #000000;
     text-decoration: underline;
-    text-underline-offset: 4px;
+    text-decoration-thickness: var(--underline-thickness);
+    text-underline-offset: 6px;
     transition: opacity 0.2s ease;
 }
 
@@ -141,9 +170,11 @@ body {
 
 /* Texture background */
 .texture {
-    flex-shrink: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
     width: 440px;
-    position: relative;
     overflow: hidden;
     background-color: #f5f5f5;
 }
@@ -159,15 +190,17 @@ body {
 @media screen and (max-width: 1023px) {
     .content {
         padding: 60px 40px;
-        max-width: 600px;
+        padding-right: 40px;
+        margin-right: 200px;
+        max-width: none;
     }
 
-    .intro__heading {
+    .intro__heading,
+    .work-card__description,
+    .contact__heading,
+    .contact__email,
+    .contact__linkedin {
         font-size: 40px;
-    }
-
-    .intro__subheading {
-        font-size: 22px;
     }
 
     .texture {
@@ -183,29 +216,25 @@ body {
 
     .content {
         padding: 40px 24px;
-        max-width: 100%;
+        margin-right: 0;
+        max-width: none;
     }
 
     .intro {
         margin-bottom: 60px;
     }
 
-    .intro__heading {
+    .intro__heading,
+    .work-card__description,
+    .contact__heading,
+    .contact__email,
+    .contact__linkedin {
         font-size: 32px;
         margin-bottom: 30px;
     }
 
-    .intro__subheading {
-        font-size: 20px;
-    }
-
     .works {
         margin-bottom: 60px;
-    }
-
-    .works__heading {
-        font-size: 20px;
-        margin-bottom: 30px;
     }
 
     .work-card {
@@ -214,22 +243,6 @@ body {
 
     .work-card__logo {
         padding: 30px;
-    }
-
-    .work-card__description {
-        font-size: 16px;
-    }
-
-    .contact__heading {
-        font-size: 16px;
-    }
-
-    .contact__email {
-        font-size: 24px;
-    }
-
-    .contact__linkedin {
-        font-size: 20px;
     }
 
     .texture {
@@ -243,16 +256,15 @@ body {
         padding: 32px 20px;
     }
 
-    .intro__heading {
+    .intro__heading,
+    .work-card__description,
+    .contact__heading,
+    .contact__email,
+    .contact__linkedin {
         font-size: 28px;
     }
 
-    .intro__subheading {
-        font-size: 18px;
-    }
-
     .contact__email {
-        font-size: 20px;
         word-break: break-all;
     }
 }

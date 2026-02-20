@@ -94,6 +94,15 @@ body {
     background-color: #ff5722;
 }
 
+.work-card__logo--behance {
+    background-color: #0057ff;
+}
+
+.work-card__logo--behance .work-card__logo-text {
+    color: #ffffff;
+    font-size: 102px;
+}
+
 .work-card__logo-text {
     font-family:
         "Inter",

@@ -94,7 +94,10 @@ body {
     max-width: 480px;
     height: auto;
     transform: translateX(-50%);
-    filter: drop-shadow(0 0 38px rgba(3, 193, 0, 0.45)) drop-shadow(0 0 82px rgba(3, 193, 0, 0.42));
+    filter:
+        drop-shadow(0 0 24px rgba(3, 193, 0, 0.82))
+        drop-shadow(0 0 58px rgba(3, 193, 0, 0.72))
+        drop-shadow(0 0 116px rgba(3, 193, 0, 0.58));
 }
 
 /* Introduction section */
